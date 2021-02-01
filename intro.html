@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intro</title>
+    <link href="./resource/css/intro.css" rel="stylesheet"/>
+    <script src="./resource/js/jquery-3.5.1.js"></script>
+    <script src="./resource/js/intro.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <style>
+        #roadMapPage nav li {
+            width: 15vw;
+            height: 5vh;
+            list-style: none;
+            float:left;
+            font-size: 0px;
+        }
+
+        #roadMapPage nav ul {
+            padding: 0;
+            margin: 0;
+            margin-left: 13%;
+        }
+        #roadMapPage #roadMapContainer{
+            width: 80vw;
+            height: 80vh;
+            position: relative;
+            top: 10%;
+            left: 10%;
+        }
+        #roadMapPage #roadMapContainer .roadMap{
+            width: 80vw;
+            height: 80vh;
+            display:none;
+        }
+        #roadMapPage #roadMapContainer .roadMap .roadMap_txt{
+            position: absolute;
+            top: 80%;
+            background-color: rgb(151, 165, 165);
+            /* opacity: 0.5; */
+            width: 100%;
+            text-align: center;
+        }
+        #roadMapPage #roadMapContainer .roadMap p{
+            color: wheat;
+            text-shadow: 2px 2px black;
+            text-align: center;
+            font-size: 2vw;
+            font-weight: bold;
+            margin: 0;
+            font-family: 'Gothic A1', sans-serif;
+        }
+        #roadMapPage #roadMapContainer .roadMap1{
+            background: url(./resource/intro/roadMap/roadMap1.jpg);
+            background-size: cover;
+        }
+        #roadMapPage #roadMapContainer .roadMap2{
+            background: url(./resource/intro/roadMap/roadMap2.jpg);
+            background-size: cover;
+        }
+        #roadMapPage #roadMapContainer .roadMap3{
+            background: url(./resource/intro/roadMap/roadMap3.jpg);
+            background-size: cover;
+        }
+        #roadMapPage #roadMapContainer .roadMap4{
+            background: url(./resource/intro/roadMap/roadMap4.jpg);
+            background-size: cover;
+        }
+        #roadMapPage #roadMapContainer .roadMap5{
+            background: url(./resource/intro/roadMap/roadMap5.jpg);
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div id="pageContainer">
+
+            <!-- 메인페이지입니다 -->
+            <div class="slidePage" id="mainPage">
+                <div class="pageLogo">
+                    <a href="./main.html">mainPage</a>
+                </div>
+            </div>
+            <!-- 메인페이지 끝 -->
+
+            <!-- 로드맵페이지입니다 -->
+            <div class="slidePage" id="roadMapPage">
+                <div class="pageLogo" id="roadMapLogo">
+                    roadMapPage
+                </div>
+                <!-- 로드맵 -->
+                <nav>
+                    <ul>
+                        <li style="background-color: cadetblue;">1</li>
+                        <li style="background-color: rgb(109, 171, 173);">2</li>
+                        <li style="background-color: rgb(133, 187, 189);">3</li>
+                        <li style="background-color: rgb(149, 197, 199);">4</li>
+                        <li style="background-color: rgb(160, 199, 201);">5</li>
+                        <img class="cancleBtn" style="width: 5vw; height: 5vh;"src="./resource/intro/roadMap/cancle.png">
+                    </ul>
+                </nav>
+                <div id="roadMapContainer">
+                    <div class="roadMap1 roadMap">
+                        <div class="roadMap_txt">
+                            <p>
+                                제일 먼저 기억나는건 6살 시절 컴퓨터를 처음 접했을때 입니다. <br>
+                                해봐야 고작 게임들이 전부였지만, 당시에는 컴퓨터 있는 가정이 몇 없어<br>
+                                자연스럽게 컴퓨터에 자부심이 생겼습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="roadMap2 roadMap">
+                        <div class="roadMap_txt">
+                            <p>
+                                초등학교 고학년쯤이 돼었을때 즈음에는, 인터넷이 많이 발달했었는데 <br>
+                                보안이 취약했었던 탓인지 DDOS, 해킹툴 같은게 유행을 했던 기억이납니다.<br>
+                                때문에 해커들이 멋있어 보였고 자연스럽게 이쪽분야에 관심을 가지게 돼었습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="roadMap3 roadMap">
+                        <div class="roadMap_txt">
+                            <p>
+                                고등학교 1학년이 되어서야 부모님의 지원덕에 학원을 다니면서 <br>
+                                '정보보안'과정을 본격적으로 공부하게 돼었습니다.<br>
+                                당시에는 너무 어려웠던 탓인가 몇번이나 재수강을 들었어야 했지만<br>
+                                그래도 3년간 끊임없이 도전 했습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="roadMap4 roadMap">
+                        <div class="roadMap_txt">
+                            <p>
+                                드디어 성인이 되었지만, 어려워진 가정환경탓에 진학은 포기하고<br>
+                                당장 돈벌이가 되는일부터 찾아다녔습니다.<br>
+                                그렇게 5년이라는 시간을 보내다보니 조금은 안정화가 되었고 더 늦어버린다면<br>
+                                어렸을때부터 가지고 있었던 꿈을 놓치게 돼버릴까봐 다시 한번 공부하기 시작합니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="roadMap5 roadMap">
+                        <div class="roadMap_txt">
+                            <p>                                
+                                아직은 정확히 진로를 잡지는 못했지만,<br>
+                                큰 그릇은 늦게 만들어진다. 라는 말이 있듯이<br>
+                                어떤 기회가 와도 다시는 놓치지 않게 꾸준히 준비할것입니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 로드맵페이지 끝 -->
+            <script>
+                $("#roadMapPage nav ul li").hover(function(){
+                    $(this).css("transform", "scale(1.2, 1.2)")
+                    .css("border","2px solid black")
+                    .css("height", "7vh");
+                    // transform: scale(2,2);
+                    // border: 1px solid black;
+                }, function(){
+                    $(this).css("transform", "scale(1, 1)")
+                    .css("border","none")
+                    .css("height", "5vh");;
+                });
+                $("#roadMapPage nav ul li").click(function(){
+                    $roadMap = $(".roadMap");
+
+                    $.each($roadMap,function(index, elem){
+                        $(elem).css("display", "none");
+                    });
+
+                    $(".roadMap"+$(this).html())
+                    .css("display", "block");
+                });
+                $(".cancleBtn").click(function(){
+                    $roadMap = $(".roadMap");
+
+                    $.each($roadMap,function(index, elem){
+                        $(elem).css("display", "none");
+                    });
+                });
+            </script>
+
+            <!-- 자기소개페이지입니다. -->
+            <div class="slidePage" id="hobbyPage">
+                <div class="pageLogo" id="hobbyLogo">
+                    Hobby
+                </div>
+
+                <div id="hobbyContainer">
+                    <div class="music hobby">
+                        <fieldset style="background: url(./resource/intro/hobby/musicBack.png) no-repeat; background-size: cover; background-position: center center;">
+                            <legend>음악</legend>
+                            <p> 취미생활중 하나로 평소에 음악을 많이 즐겨듣는편입니다.<br>
+                                주로 힙합이나 r&b의 노래들을 즐겨듣는 편이며, <br>아래는 제가 즐겨드는 노래들입니다.</p>
+                                <br><br><br>
+                            <div class="musicPlayer" style="margin-left: 10%;">
+                                <iframe src="https://www.youtube.com/embed/Ytc090q5blE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                                <iframe src="https://www.youtube.com/embed/Mb1ZvUDvLDY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                                <iframe src="https://www.youtube.com/embed/8U64rB7dIJI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                                <iframe src="https://www.youtube.com/embed/XXYlFuWEuKI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="play hobby">
+                        <fieldset style="background: url(./resource/intro/hobby/playBack.png) no-repeat; background-size: cover; background-position: center center;">
+                            <legend>놀이</legend>
+                            <p> 주로 스트레스를 풀때는 술먹고 신나게 노는걸 좋아합니다<br>
+                                때문인지 할로윈이나 여러 기념일에 나가 노는걸 즐깁니다. </p>
+                            <div class="playImgContainer">
+                                <img src="./resource/intro/hobby/play1.jpg">
+                                <img src="./resource/intro/hobby/play2.jpg">
+                                <img src="./resource/intro/hobby/play3.jpg"><br>
+                                <img src="./resource/intro/hobby/play4.jpg">
+                                <img src="./resource/intro/hobby/play5.jpg">
+                                <img src="./resource/intro/hobby/play6.jpg">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cycle hobby" style="background: url(./resource/intro/hobby/cycleBack.png) no-repeat; background-size: cover; background-position: center center;">
+                        <fieldset style="text-align: center;">
+                            <legend>운동</legend>
+                            <p> 스트레스를 푸는 방법중 또 다른 취미생활은 <br>자전거를 타는것입니다<br>
+                                주로 날이 풀리면 한강에 자주 나가서 자전거를<br> 타면서 건강도 챙기고 있습니다.<br>
+                                안정적인 직장을 가지게 된다면,<br> 여래 대회들도 참여해보고 싶습니다.</p>
+                            <div class="cycleImgContainer">
+                                <img src="./resource/intro/hobby/cycle1.jpg">
+                                <img src="./resource/intro/hobby/cycle2.jpg">
+                                <img src="./resource/intro/hobby/cycle3.jpg">
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 자기소개페이지 끝 -->
+
+            <div class="slidePage" id="aboutPage">
+                <div class="pageLogo" id="hobbyLogo">
+                    aboutPage
+                </div>
+                <hr>
+                <div id="pageWrap">
+                    <div class="pageIntro" id="mainPage_intro" style="text-align: center;">
+                        <h1 style="font-size: 5vw;">main.html</h1>
+                        <div class="mainPageWrap">
+                            <img src="./resource/intro/aboutPage/pageMap1.PNG" style="width: 50vw;">
+                            <iframe src="./main.html" width="500vw" height="500vh"></iframe>
+                        </div>
+                        <p style="font-size: 2vw;">첫번째로는 메인페이지입니다. 간단하게 환영페이지를 만들어 보았습니다.<br>
+                            전체적으로 페이지의 모든 요소들이<br>
+                            어느정도는 반응형으로 만들어져서 크기를 줄이거나 키워도 구성요소들이 흐트러지지 않게 만들었습니다.</p>
+                    </div>
+                    <hr>
+                    <div class="pageIntro" id="indexPage_intro" style="text-align: center;">
+                        <h1 style="font-size: 5vw;">index.html</h1>
+                        <div class="indexPageWrap">
+                            <iframe src="./index.html" width="300vw" height="300vh"></iframe><br>
+                            <img src="./resource/intro/aboutPage/pageMap2.PNG" style="width: 20vw;">
+                            <img src="./resource/intro/aboutPage/pageMap3.PNG" style="width: 20vw;">
+                            <img src="./resource/intro/aboutPage/pageMap4.PNG" style="width: 20vw;">
+                        </div>
+                        <p style="font-size: 2vw;">
+                            간단하게 회원가입과 로그인을 할 수있는 인덱스페이지 입니다.<br>
+                            이름과 입장코드 정도만 입력을 받아서 입장코드로 페이지에 접속할수 있게 만들어 보았습니다.<br>
+                            여러가지의 동적인 효과로 페이지를 만들어보았습니다.
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="pageIntro" id="introPage_intro" style="text-align: center;">
+                        <h1 style="font-size: 5vw;">intro.html</h1>
+                        <div class="introPageWrap">
+                            <iframe src="./intro.html" width="300vw" height="300vh"></iframe><br>
+                            <img src="./resource/intro/aboutPage/pageMap5.PNG" style="width: 15vw;">
+                            <img src="./resource/intro/aboutPage/pageMap6.PNG" style="width: 15vw;">
+                            <img src="./resource/intro/aboutPage/pageMap7.PNG" style="width: 15vw;">
+                            <img src="./resource/intro/aboutPage/pageMap8.PNG" style="width: 15vw;">
+                            <img src="./resource/intro/aboutPage/pageMap9.PNG" style="width: 15vw;">
+                            <img src="./resource/intro/aboutPage/pageMap10.PNG" style="width: 15vw;">
+                        </div>
+                        <p style="font-size: 2vw;">
+                            마지막으로 인트로페이지입니다. 자기소개와 로드맵 페이지의 정보등을 담아두었습니다.<br>
+                            페이지를 마치며, 프로젝트 도중에 3~4번정도 갈아엎었습니다. 디자인 적인 부분에서 많이부족했고<br>
+                            시간이 한정적이다 보니 아쉬움이 많이 남습니다. 개인적으로 여러개의 페이지를 또 만들어 보고싶습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a class="prev" onclick="button_click(-1);">&#10094</a> 
+            <a class="next" onclick="button_click(1);">&#10095</a> 
+        </div>
+    </section>
+
+
+    <script>
+        // Slide 구현함수입니다.
+        let currSlide =1;
+        showSlide(currSlide);
+        
+        function button_click(num){
+            showSlide((currSlide += num));
+        };
+        function showSlide(num){
+            const slides = document.querySelectorAll(".slidePage");
+            if(num>slides.length){
+                currSlide =1;
+            }
+            if(num<1){
+                currSlide = slides.length;
+            }
+            for(let i=0; i<slides.length; i++){
+                slides[i].style.display="none";
+            }slides[currSlide -1].style.display="block";
+        }
+    </script>
+</body>
+</html>

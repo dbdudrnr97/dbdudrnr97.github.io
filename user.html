@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./resource/js/jquery-3.5.1.js"></script>
+</head>
+<body>
+    <h1>　회원정보 　　접속정보</h1>
+    
+    <div id="userWrapper" style="display: inline-block;">
+        <table class="userTable" border="1px">
+            <tr>
+                <th>회원번호</th>
+                <th>이름</th>
+                <th>입장코드</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="logWrapper" style="display: inline-block;">
+        <table class="logTable" border="1px">
+            <tr>
+                <th>이름</th>
+                <th>접속시간</th>
+            </tr>
+        </table>
+    </div>
+    
+    <h1>페이지맵</h1>
+    <a href="./index.html">index</a>
+    <a href="./intro.html">intro</a>
+    <a href="./main.html">main</a>
+    <script>
+        $(document).ready(function(){
+            var userArr = JSON.parse(localStorage.getItem("userArr"));
+            var userTable = $(".userTable");
+    
+            $.each(userArr,function(index, elem){
+                var tr = "<tr>";
+                tr += "<td>" + (index +1) + "</td>";
+                tr += "<td>" + elem.name + "</td>";
+                tr += "<td>" + elem.password + "</td>";
+                tr += "</tr>";
+                userTable.append(tr);
+            });
+
+            var logArr = JSON.parse(localStorage.getItem("logArr"));
+            var logTable = $(".logTable");
+
+            $.each(logArr,function(index, elem){
+                var date = new Date(elem.time);
+
+                var tr = "<tr>";
+                tr += "<td>" + elem.name + "</td>";
+                tr += "<td>" + displayTime(date) + "</td>";
+                tr += "</tr>";
+                logTable.append(tr);
+            });
+
+            function displayTime(date){
+                return date.getFullYear() + "/" + (date.getMonth()+1) + "/" + date.getDate() + " " 
+                + date.getHours() 
+                + ":" +date.getMinutes();
+            }
+        });
+    </script>
+</body>
+</html>
