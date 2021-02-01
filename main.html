@@ -1,42 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>uk</title>
-        <!-- Font Link -->
-        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-        <!-- Finish Font Link -->
-        
-        <script src="./resource/js/jquery-3.5.1.js"></script>
-        <link href="./resource/css/main.css" rel="stylesheet"/>
-        <script src="./resource/js/main.js"></script>
-        <style>
-            .webPage{
-                position: absolute;
-                top: 25%;
-                left: 14%;
-                width: 70vw;
-                height: 70vh;
-                border-radius: 20px;
-            }  
-        </style>
-    </head>
-    <body>
-        <section>
-            <div id="clock"></div>
-                <div id="textContent">
-                    <h1>유영국 개인프로젝트</h1>
-                    <p>환영합니다. 유영국의 개인프로젝트 페이지입니다.</p>
-                </div>
-                <div id="enterBtn">
-                    <a href="/index.html" class="enterBtn">#enterBtn</a>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <script src="./resource/js/jquery-3.5.1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="./resource/css/main.css" rel="stylesheet"/>
 
-        </section>
+    <style>
+    #joinPage{
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+    }
+    #joinPage fieldset{
+        margin-top: 10%;
+    }
+    #joinPage .joinLabel{
+        color: teal;
+        font-weight: bold;
+        font-size: 8vw;
+        text-shadow: -5px 5px black;
+    }
+    #joinPage .joinText{
+        height: 10vh;
+        width: 50vw;
+        color: teal;
+        border-radius: 500px;
+        border: 5px solid teal;
+        text-align: center;
+        font-size: 10vw;
+    }
+    #joinPage input[type=submit]{
+        color: teal;
+        background-color: white;
+        height: 10vh;
+        width: 50vw;
+        font-size: 5vw;
+        border-radius: 500px;
+        border: 5px solid teal;
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <article id="mainArticle">
+            <!-- startPage -->
+            <div id="startPage">
+                <div id="startPageLogo">
+                    <p class="logo">Web</p>
+                    <p class="intro">Project Page</p>
+                </div>
+                <div class="mainBtn" id="loginBtn" style="cursor: pointer;">Login</div>
+                <div class="mainBtn" id="joinBtn" style="cursor: pointer;">Join</div>
+            </div>
+            <!-- joinPage -->
+            <div id="joinPage">
+                <form action="javascript:saveUser();">
+                    <fieldset>
+                        <label class="joinLabel" for="joinName">이름입력</label><br>
+                        <input type="text" class="joinText" name="joinName" id="joinName"><br>
+                        <label class="joinLabel" for="joinPassword">입장코드 입력</label><br>
+                        <input type="text" class="joinText" name="joinPassword" id="joinPassword">
+                    </fieldset><br><br>
+                    <input type="submit" value="회원가입">
+                </form>
+            </div>
+            <!-- loginPage -->
+            <div id="mainPage">
+                <p style="cursor: pointer;">Enter Code</p>
+                <input type="password" name="enterCode" id="enterCode">
+            </div>
+            <div id="LoadingPage">
+                <div id="loadingMotion"></div>
+            </div>
+        </article>
+    </section>
 
-        <script>
-        </script>
-    </body>
+    <script>
+        // startPage 의 버튼
+        $(joinBtn).click(function(){
+            $('#mainArticle')
+            .css('transform','translateY(-100vh)');
+        });
+        $(loginBtn).click(function(){
+            $('#mainArticle')
+            .css('transform','translateY(-200vh)');
+        });
+
+        // 회원가입 함수
+        function saveUser(){
+            var user = new User($(joinName).val(), $(joinPassword).val());
+            var $name = $(joinName).val();
+            var $code = $(joinPassword).val();
+            var userArr = JSON.parse(localStorage.getItem("userArr"));
+            if(userArr == null) userArr= [];
+            
+            
+            // 유효성검사
+            if($name == '' && $code == ''){
+                alert("아이디 혹은 비밀번호를 입력해주세요.");
+                return false;
+            }
+            if(!(/^[가-힣]{2,}$/.test($name))) {
+                alert("이름은 한글 2글자 이상이어야 합니다.");
+                return false;
+            }
+            if($code.length < 4){
+                alert("입장코드는 4글자 이상이어야 합니다.");
+                return false;
+            }
+            // 중복검사
+            var tf = checkEnterCode(userArr, $code)
+            if(tf == 0){
+                alert('중복된 입장코드가 있습니다.');
+                return false;
+            }
+
+            alert('회원가입성공');
+
+            userArr.push(user);
+            //배열로 저장
+            var jsonStr = JSON.stringify(userArr); //문자열 형태로 변환
+            localStorage.setItem("userArr", jsonStr);
+
+            //초기화
+            $(joinName).val('').focus();
+            $(joinPassword).val('');
+            $('#mainArticle').css('transform','translateY(-200vh)');
+        }
+        function User(name, password){
+            this.name = name;
+            this.password = password;
+        }
+
+        function checkEnterCode(userArr, $code){
+            var temp=1;
+            $.each(userArr, function(index, elem){
+                if(elem.password == $code){
+                    temp=0;
+                }
+            });
+            return temp;
+        }
+
+
+
+        $("#mainPage p").click(function(){
+            var $code = $(enterCode).val();
+            var userArr = JSON.parse(localStorage.getItem("userArr"));
+            var tf = checkEnterCode(userArr, $code);
+            var name = '';
+            $.each(userArr, function(index, elem){
+                if(elem.password == $code){
+                    name = elem.name;
+                }
+            });
+
+            if($code == "admin"){
+                location.replace("./user.html");
+                return false;
+            }
+
+            if(tf == 0){
+                alert(name + "님 환영합니다.");
+                var logArr = JSON.parse(localStorage.getItem("logArr"));
+                if(logArr == null) logArr= [];
+                var userlog = new userLog(name);
+                logArr.push(userlog);
+                var logJsonStr = JSON.stringify(logArr);
+                localStorage.setItem("logArr", logJsonStr);
+
+                $('#mainArticle').css('transform','translateY(-240vh)');
+                setTimeout(function(){
+                    $('#mainArticle')
+                    .css('transform', 'translateX(-100vw)');
+                },1500);
+                setTimeout(function(){
+                    location.replace("./intro.html");
+                },3000);
+            }
+            else {
+                alert("유효한 코드가 없습니다.");
+                $(enterCode).focus();
+            }
+
+            function userLog(name){
+            this.name = name;
+            this.time = new Date().getTime();
+            }
+        });
+    </script>
+</body>
 </html>
